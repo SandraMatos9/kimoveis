@@ -1,5 +1,5 @@
-import { Entity,Column, PrimaryGeneratedColumn, DeleteDateColumn, UpdateDateColumn, CreateDateColumn, BeforeInsert, OneToOne, OneToMany, JoinColumn } from "typeorm";
-import {hashSync} from "bcryptjs";
+import { Entity,Column, PrimaryGeneratedColumn, DeleteDateColumn, UpdateDateColumn, CreateDateColumn, BeforeInsert, OneToOne, OneToMany, JoinColumn, BeforeUpdate } from "typeorm";
+import {getRounds, hashSync} from "bcryptjs";
 import { Schedule } from "./schendules.entities";
 
 @Entity('users')
@@ -35,8 +35,14 @@ class User{
     schedules:Schedule[]
 
     @BeforeInsert()
+    @BeforeUpdate()
     hashPassword(){
-        this.password= hashSync(this.password,10)
+        const isEncrypted = getRounds(this.password)
+        if(!isEncrypted){
+            this.password= hashSync(this.password,10)
+            
+        }
+
     }
 
 }

@@ -21,8 +21,9 @@ const listAllCategoriesController = async(
     req: Request,
     res: Response
 ): Promise <Response> => {
-    const categories = await listAllCategoriesService()
-    return res.json(categories)
+    const category = Number(req.query.categories)
+    const listCategories: TCategoryRequest[] = await listAllCategoriesService(category)
+    return res.status(200).json(listCategories)
 }
 
 const listAllRealEstateCategoriesController = async(

@@ -11,31 +11,20 @@ const tokenIsValidMiddleware=(
     next: NextFunction
 ) =>{
     let token: string|undefined = req.headers.authorization
-    const idParams = req.params.id
-    const tokenId= res.locals.tokenId
-    const isAdmin = res.locals.tokenAdmin 
+    
 
     if(!token){
         throw new AppError('Missing bearer token',401)
     }
 
     token = token.split(" ")[1]
-    if(req.route.path=== "/users/:id" && req.method =="PATCH"){
-        if( isAdmin === false){
-            throw new AppError("Insufficient Permission",403)
-
-        }
-       }
-
-   if((idParams!=tokenId)  &&   isAdmin===false){
-    throw new AppError("Insufficient Permission",403)
-   }
+  
 
     jwt.verify(token, process.env.SECRET_KEY!, (error:any,decoded:any)=>{
         if(error) throw new AppError(error.message, 401)
 
-        res.locals.userId = decoded.sub
-        res.locals.userPermission = decoded.admin
+        res.locals.userId = parseInt(decoded.sub)
+        res.locals.admin = decoded.admin
 
         
         return next()

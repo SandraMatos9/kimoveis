@@ -5,7 +5,7 @@ import { AppError } from "../error";
 import { TUser } from "../interfaces/users.interfaces copy";
 import { Repository } from "typeorm";
 
-const checkIdValidateMiddleware = async (
+const checkCategoryExistMiddleware = async (
   req: Request,
   res: Response,
   next: NextFunction
@@ -17,7 +17,7 @@ const checkIdValidateMiddleware = async (
     const foundUser:TUser|null = await userRepository.findOneBy({id:Number(id)})
 
     if(!foundUser){
-        throw new AppError ("User not found",404)
+        throw new AppError ("Category not found",404)
     }
     res.locals.foundUser=foundUser
     return next()
@@ -25,4 +25,4 @@ const checkIdValidateMiddleware = async (
 
 
 };
-export default checkIdValidateMiddleware;
+export default checkCategoryExistMiddleware;
