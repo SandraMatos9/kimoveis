@@ -1,22 +1,22 @@
+import { Response,Request } from 'express';
 import { z } from 'zod';
 
+
+
+
 const schedulesSchema= z.object({
-    id: z.number(),
     date: z.string(),
     hour:z.string(),
+    realEstateId: z.number(),
+    userId:z.number()
 })
 
-const schedulesSchemaRequest = schedulesSchema.omit({
-    updatedAt:true,
-    deletedAt:true,
-    createdAt:true,
-    id:true,
+const schedulesSchemaRequest = schedulesSchema.extend({
+    id: z.number(),
     
 })
 
-const schedulesSchemaResponse = schedulesSchema.omit({
-    id:true
-})
 
 
-export{schedulesSchema, schedulesSchemaRequest, schedulesSchemaResponse}
+
+export{schedulesSchema, schedulesSchemaRequest}

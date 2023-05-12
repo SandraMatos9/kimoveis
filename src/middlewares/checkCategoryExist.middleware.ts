@@ -1,25 +1,26 @@
 import { Response, Request, NextFunction } from "express";
 import { AppDataSource } from "../data-source";
-import { User } from "../entities";
+import { Category, User } from "../entities";
 import { AppError } from "../error";
 import { TUser } from "../interfaces/users.interfaces copy";
 import { Repository } from "typeorm";
+import { TCategory } from "../interfaces/categories.interface";
 
 const checkCategoryExistMiddleware = async (
   req: Request,
   res: Response,
   next: NextFunction
 ) => {
-    const userRepository:Repository<User>=AppDataSource.getRepository(User)
+    const categoryRepository:Repository<Category>=AppDataSource.getRepository(Category)
 
 
     const {id} =req.params
-    const foundUser:TUser|null = await userRepository.findOneBy({id:Number(id)})
+    const foundCategory:TCategory|null = await categoryRepository.findOneBy({id:Number(id)})
 
-    if(!foundUser){
+    if(!foundCategory){
         throw new AppError ("Category not found",404)
     }
-    res.locals.foundUser=foundUser
+    res.locals.foundCategory=foundCategory
     return next()
 
 

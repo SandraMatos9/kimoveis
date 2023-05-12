@@ -6,6 +6,8 @@ import {
   OneToOne,
   OneToMany,
   JoinColumn,
+  CreateDateColumn,
+  UpdateDateColumn,
 } from "typeorm";
 import { Address } from "./addresses.entities";
 import { Category } from "./categories.entities";
@@ -18,7 +20,7 @@ class RealEstate {
   id: number;
 
   @Column({ type: "boolean", default: false })
-  sold: number;
+  sold: boolean;
 
   @Column({ type: "decimal",precision:12, scale:2, default: 0 })
   value: number | string;
@@ -26,11 +28,11 @@ class RealEstate {
   @Column({ type: "integer" })
   size: number;
 
-  @Column()
-  createdAt: Date;
+  @CreateDateColumn({type:"date"})
+  createdAt: string;
 
-  @Column()
-  updatedAt: Date;
+  @UpdateDateColumn({type:"date"})
+  updatedAt: string;
 
   @OneToOne(() => Address, (address) => address.realEstate)
   @JoinColumn()
@@ -38,12 +40,12 @@ class RealEstate {
 
   @ManyToOne(() => Category, (category) => category.realEstate)
   @JoinColumn()
-  category: Category | number;
+  category: Category ;
 
   @OneToMany(() => Schedule, (schedules) =>  schedules.realEstate)
   @JoinColumn()
   schedules: Schedule[];
-  realEstate: any;
+    realEstate: { id: number; name: string; };
 }
 
 export  { RealEstate };

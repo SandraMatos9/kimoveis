@@ -11,8 +11,6 @@ const checkAdminMiddleware = (
     const idParams = parseInt(req.params.id)
     const userId= res.locals.userId
 
-    console.log(req.method)
-    console.log(adminUser, userId)
     
     if(req.method ==="PATCH"){
         if( !adminUser && idParams!= userId ){
@@ -25,7 +23,12 @@ const checkAdminMiddleware = (
     if(!adminUser){
         throw new AppError('Insufficient permission',403)
     }
- 
+
+
+    
+
+  
+    
   
 
     return next()
