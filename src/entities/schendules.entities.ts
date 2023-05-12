@@ -16,10 +16,10 @@ class Schedule{
 
     @ManyToOne(()=> RealEstate)
     @JoinColumn()
-    realEstate: RealEstate
+    realEstate: RealEstate | number
 
     @ManyToOne(() => User)
     @JoinColumn()
-    user:User
+    user:User | number
 }
 export {Schedule}

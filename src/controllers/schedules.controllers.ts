@@ -11,9 +11,9 @@ const createSchedulesController = async(
     req: Request,
     res:Response
 ):Promise<Response> =>{
-    const scheduleData:Schedule = req.body
-    const {id} = res.locals
-    const newSchedules = await createSchedulesService(scheduleData,id)
+    const scheduleData:TScheduleRequest = req.body
+    const userId = res.locals.userId
+    const newSchedules = await createSchedulesService(scheduleData,userId)
     return res.status(201).json(newSchedules)
 }
 

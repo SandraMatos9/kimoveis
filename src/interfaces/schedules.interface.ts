@@ -4,4 +4,8 @@ import { schedulesSchema, schedulesSchemaRequest } from '../schemas/schedules.sc
 type TScheduleRequest= z.infer<typeof schedulesSchemaRequest>
 type TSchedule = z.infer<typeof schedulesSchema>
 
-export {TSchedule, TScheduleRequest}
+type TScheduleMessage = {
+    message:string
+}
+
+export {TSchedule, TScheduleRequest,TScheduleMessage}
