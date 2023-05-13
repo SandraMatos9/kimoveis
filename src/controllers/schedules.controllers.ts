@@ -1,6 +1,6 @@
 import { Response,Request } from "express"
 import { Schedule } from "../entities"
-import { TScheduleRequest } from "../interfaces/schedules.interface"
+import { TScheduleRequest } from "../interfaces/schedules.interfaces"
 import createRealEstateService from "../services/real_estate/createRealEstate.service"
 import createSchedulesService from "../services/schedules/createSchedules.service"
 

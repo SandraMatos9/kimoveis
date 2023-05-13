@@ -2,7 +2,7 @@ import { Response,Request,NextFunction } from "express"
 import { AppDataSource } from "../data-source"
 import { Address, Category, RealEstate, User } from "../entities"
 import { AppError } from "../error"
-import { TREalEstateSchemaNoNumber, TRealEstateSchemaIdRequest, TRealEstateSchemaNoNumberRequest } from "../interfaces/realEstate.interface"
+import { TREalEstateSchemaNoNumber, TRealEstateSchemaIdRequest, TRealEstateSchemaNoNumberRequest } from "../interfaces/realEstate.interfaces"
 import { realEstateSchemaNoNumberRequest } from "../schemas/realEstate.schema"
 
 

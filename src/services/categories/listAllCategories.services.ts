@@ -1,6 +1,6 @@
 import { Repository } from "typeorm";
 import { Category } from "../../entities";
-import { TCategory } from "../../interfaces/categories.interface";
+import { TCategory } from "../../interfaces/categories.interfaces";
 import { TUser } from "../../interfaces/users.interfaces copy";
 import { AppDataSource } from "../../data-source";
 

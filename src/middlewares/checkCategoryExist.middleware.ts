@@ -4,7 +4,7 @@ import { Category, User } from "../entities";
 import { AppError } from "../error";
 import { TUser } from "../interfaces/users.interfaces copy";
 import { Repository } from "typeorm";
-import { TCategory } from "../interfaces/categories.interface";
+import { TCategory } from "../interfaces/categories.interfaces";
 
 const checkCategoryExistMiddleware = async (
   req: Request,

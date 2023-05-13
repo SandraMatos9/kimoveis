@@ -1,6 +1,6 @@
 import { Request,Response } from "express"
 import { RealEstate } from "../entities"
-import { TRealEstate, TRealEstateAllRequest, TRealEstateRequest, TRealEstateSchemaResponse } from "../interfaces/realEstate.interface"
+import { TRealEstate, TRealEstateAllRequest, TRealEstateRequest, TRealEstateSchemaResponse } from "../interfaces/realEstate.interfaces"
 
 import createRealEstateService from "../services/real_estate/createRealEstate.service"
 import listAllRealEstateService from "../services/real_estate/listAllRealEstate.service"

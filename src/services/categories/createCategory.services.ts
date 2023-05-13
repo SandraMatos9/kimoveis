@@ -1,6 +1,6 @@
 import { Repository } from "typeorm";
 import { Category } from "../../entities";
-import { TCategory, TCategoryRequest } from "../../interfaces/categories.interface";
+import { TCategory, TCategoryRequest } from "../../interfaces/categories.interfaces";
 import { AppDataSource } from "../../data-source";
 
 const  createCategoryServices = async (categoryData: TCategoryRequest):Promise<Category> => {

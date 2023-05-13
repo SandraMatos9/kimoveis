@@ -1,7 +1,8 @@
 import { Repository } from "typeorm";
 import { RealEstate } from "../../entities";
 import { AppDataSource } from "../../data-source";
-import { TRealEstateRequest } from "../../interfaces/realEstate.interface"
+import { TRealEstateRequest } from "../../interfaces/realEstate.interfaces";
+
 
 const listAllRealEstateService = async(realEstate:number) : Promise<TRealEstateRequest[]|null> =>{
     const realEstateRepository:Repository<RealEstate>=AppDataSource.getRepository(RealEstate)

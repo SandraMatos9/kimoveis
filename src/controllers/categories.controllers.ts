@@ -1,7 +1,7 @@
 import { Request,Response } from "express"
 import { Category } from "../entities"
 
-import { TCategoryRequest } from "../interfaces/categories.interface"
+import { TCategoryRequest } from "../interfaces/categories.interfaces"
 import createCategoryServices from "../services/categories/createCategory.services"
 import listAllCategoriesService from "../services/categories/listAllCategories.services"
 import listAllRealEstateCategoriesService from "../services/categories/listAllRealEstateCategories.service."

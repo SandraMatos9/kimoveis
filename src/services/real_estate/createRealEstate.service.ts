@@ -1,10 +1,10 @@
 import { Repository } from "typeorm"
 import { Address, Category, RealEstate } from "../../entities"
 import { AppDataSource } from "../../data-source"
-import { TRealEstate, TRealEstateAllRequest, TRealEstateSchemaIdRequest, TRealEstateSchemaResponse } from "../../interfaces/realEstate.interface"
-import { TCategory } from "../../interfaces/categories.interface"
+import { TRealEstate, TRealEstateAllRequest, TRealEstateSchemaIdRequest, TRealEstateSchemaResponse } from "../../interfaces/realEstate.interfaces"
+import { TCategory } from "../../interfaces/categories.interfaces"
 import { number } from "zod"
-import { TAddress } from "../../interfaces/address.interface"
+import { TAddress } from "../../interfaces/address.interfaces"
 import { AppError } from "../../error"
 
 const createRealEstateService = async(realEstateData:TRealEstateAllRequest):Promise<TRealEstateSchemaResponse> =>{

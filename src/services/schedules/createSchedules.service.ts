@@ -1,10 +1,9 @@
-import { InsertResult, Repository } from "typeorm"
+import { Repository } from "typeorm"
 import { RealEstate, Schedule, User } from "../../entities"
 import { AppDataSource } from "../../data-source"
 import { TUser } from "../../interfaces/users.interfaces copy"
-import { number } from "zod"
-import { TSchedule, TScheduleMessage, TScheduleRequest } from "../../interfaces/schedules.interface"
-import { TRealEstate } from "../../interfaces/realEstate.interface"
+import { TScheduleMessage, TScheduleRequest } from "../../interfaces/schedules.interfaces"
+import { TRealEstate } from "../../interfaces/realEstate.interfaces"
 import { AppError } from "../../error"
 
 const  createSchedulesService = async (schedulesData: TScheduleRequest,userId:number):Promise<TScheduleMessage> => {
